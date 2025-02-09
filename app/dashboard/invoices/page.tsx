@@ -4,19 +4,19 @@ import { useState } from "react";
 import Dropzone from "react-dropzone";
 
 export default function page() {
-  const [files, setFiles] = useState([]);
+  const [files, setFiles] = useState<File[]>([]);
   const [customText, setCustomText] = useState("");
   const [generatedDocs, setGeneratedDocs] = useState("");
   const [filePreview, setFilePreview] = useState("");
 
   // Handle file upload and preview
-  const handleFileUpload = (acceptedFiles ) => {
+  const handleFileUpload = (acceptedFiles: File[]) => {
     setFiles(acceptedFiles);
-
+  
     if (acceptedFiles.length > 0) {
       const reader = new FileReader();
       reader.onload = function (e) {
-        setFilePreview(e.target.result);
+        setFilePreview(e.target?.result as string);
       };
       reader.readAsText(acceptedFiles[0]);
     }
