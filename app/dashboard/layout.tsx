@@ -3,17 +3,22 @@ import SideNav from "../ui/dashboard/sidenav";
 import { montserrat } from "../ui/fonts";
 import { clsx } from "clsx";
 
+
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const darkModeEnable = true;
-  // nota  antialiased se agregando cuando se cargan fuente de google fonts para mejorar la calidad de la fuente en pantalla 
+  // nota  antialiased se agregando cuando se cargan fuente de google fonts para mejorar la calidad de la fuente en pantalla
   return (
     <>
       <header className="bg-blue-600 h-20 flex items-center justify-around text-white">
         <p
-          className={clsx(`text-lg font-semibold antialiased ${montserrat.className}`, {
-            "text-white": darkModeEnable,
-            "text-black": !darkModeEnable,
-          })}
+          className={clsx(
+            `text-lg font-semibold antialiased ${montserrat.className}`,
+            {
+              "text-white": darkModeEnable,
+              "text-black": !darkModeEnable,
+            }
+          )}
         >
           Este podría ser el Header que se renderiza desde /dashboard
         </p>
