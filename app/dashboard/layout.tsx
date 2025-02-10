@@ -5,19 +5,22 @@ import { clsx } from "clsx";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const darkModeEnable = true;
-  // nota  antialiased se agregando cuando se cargan fuente de google fonts para mejorar la calidad de la fuente en pantalla 
+  // nota  antialiased se agregando cuando se cargan fuente de google fonts para mejorar la calidad de la fuente en pantalla
   return (
     <>
       <header className="bg-blue-600 h-20 flex items-center justify-around text-white">
         <p
-          className={clsx(`text-lg font-semibold antialiased ${montserrat.className}`, {
-            "text-white": darkModeEnable,
-            "text-black": !darkModeEnable,
-          })}
+          className={clsx(
+            `text-lg font-semibold antialiased ${montserrat.className}`,
+            {
+              "text-white": darkModeEnable,
+              "text-black": !darkModeEnable,
+            }
+          )}
         >
-          Este podría ser el Header que se renderiza desde /dashboard
+          This can be the Header, that's would be rendered from the route /dashboard
         </p>
-        <p>ldfs</p>
+        <p>2025</p>
       </header>
       <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
         <div className="w-full flex-none md:w-64 bg-gray-100 ">

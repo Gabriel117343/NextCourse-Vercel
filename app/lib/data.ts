@@ -9,6 +9,9 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 
+// Nota: se consume la variable de entorno POSTGRES_URL fuera de las funciones para evitar que se cree una nueva conexion cada vez que se llame a una funcion, se crea una sola conexion y se reutiliza
+// Además el acceder a las variables de entorno suele ser costoso, por lo que es mejor acceder a ellas una sola vez
+
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function fetchRevenue() {
@@ -16,12 +19,12 @@ export async function fetchRevenue() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue[]>`SELECT * FROM revenue`;
 
-    // console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 3 seconds.');
 
     return data;
   } catch (error) {
