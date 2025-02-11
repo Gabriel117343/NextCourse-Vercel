@@ -156,7 +156,7 @@ export async function fetchInvoiceById(id: string) {
       FROM invoices
       WHERE invoices.id = ${id};
     `;
-
+    // Nota: cuando se solicita un recurso por id y no existe retorna un array vacio [] en lugar de entrar en el catch
     const invoice = data.map((invoice) => ({
       ...invoice,
       // Convert amount from cents to dollars
