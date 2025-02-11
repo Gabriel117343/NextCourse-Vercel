@@ -3,6 +3,14 @@ import SideNav from "../ui/dashboard/sidenav";
 import { montserrat } from "../ui/fonts";
 import { clsx } from "clsx";
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Acme Dashboard',
+  description: 'The official Next.js Course Dashboard, built with App Router.',
+  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+};
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const darkModeEnable = true;
   // nota  antialiased se agregando cuando se cargan fuente de google fonts para mejorar la calidad de la fuente en pantalla
@@ -18,7 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             }
           )}
         >
-          This can be the Header, that's would be rendered from the route /dashboard
+          This can be the Header, {`that's`} would be rendered from the route /dashboard
         </p>
         <p>2025</p>
       </header>
